@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" contents="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="eduford_img/onlyCap.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home.css">
+    <title>Eduford</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+</head>
+<style>
+    .contact-col1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#contact-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form input[type="text"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#contact-form button {
+    background-color: orangered;
+    color: white;
+    padding: 10px 15px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+#contact-form button:hover {
+    background-color: orangered;
+}
+</style>
+<body>
+    <section class="sub-header1">
+        <div class="navbar">
+            <div class="logo" style="margin-top:50px; margin-right: 2px;">
+                <a href="home.html"><img src="eduford_img/logo.png"></a>
+            </div>
+            <ul class="links">
+                <div class="search-container" style=" margin-top: 30px;">
+                    <input type="text" placeholder="Search.." style="font-size: 25px;">
+                </div>
+            </ul>
+            <a href="signin.html" class="action_btn sign">Sign in</a>
+            <a href="login.html" class="action_btn login"> Login</a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <h1>Contact us</h1>
+    </section>
+    <!-- Contact us -->
+    <section class="location">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60313.65565294067!2d72.8638489186343!3d19.1250436146657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8081c1d7b43%3A0xbaf100c54b8be366!2sPowai%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1711281532988!5m2!1sen!2sin"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </section>
+    <div class="contact-us">
+        <section class="row1">
+            <div class="contact-col">
+                <div>
+                    <i class="fa fa-home"></i>
+                    <span>
+                        <h5>502,Satori buliding</h5>
+                        <p>Satori city, Satori</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <span>
+                        <h5>+91123456789</h5>
+                        <p>Monday-Friday 10am-5pm</p>
+                    </span>
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <span>
+                        <h5>huzaifa.a@somaiya.edu</h5>
+                        <p>Email us for query</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contact-col1">
+                <form id="contact-form" action="http://localhost:3000/send-email" method="post">
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <input type="text" name="email" placeholder="Enter email" required>
+                    <input type="text" name="subject" placeholder="Enter Subject" required>
+                    <textarea rows="8" name="message" id="message" placeholder="Message" required></textarea>
+                    <button type="submit" class="action_btn">Send message</button>
+                </form>        
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div class="rowf">
+            <div class="colf">
+                <img src="eduford_img/logo.png" class="logof">
+                <li>Eduford is an educational platform dedicated to providing information about the courses one must be
+                    willing to pursue, relevant colleges and other career prospects</li>
+            </div>
+            <div class="colf">
+                <h3>Trending streams<div class="underline"><span></span></div>
+                </h3>
+                <ul>
+                    <li>Engineering</li>
+                    <li>management</li>
+                    <li>Medical</li>
+                    <li>Design</li>
+                    <li>Pharmacy</li>
+                </ul>
+            </div>
+            <div class="colf">
+                <h3>Trending Courses<div class="underline"><span></span></h3>
+                <ul>
+                    <li>B.Tech</li>
+                    <li>MBA</li>
+                    <li>MBBS</li>
+                    <li>B.Des</li>
+                    <li>B.Pharma</li>
+                </ul>
+            </div>
+            <div class="colf">
+                <h3>Newsletter<div class="underline"><span></span></h3>
+                <form>
+                    <i class="fa-solid fa-envelope" style="margin-right:8px;"></i>
+                    <input type="email" placeholder="Enter your email id" required>
+                    <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-pinterest"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+        
+            fetch('http://localhost:3000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'Email sent') {
+                    alert('Email sent!');
+                } else {
+                    alert('Failed to send email.');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('An error occurred.');
+            });
+        });
+        </script>
+</body>
+
+</html>
