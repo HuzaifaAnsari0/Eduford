@@ -2,80 +2,142 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" contents="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="eduford_img/onlyCap.png">
+    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
-    <title>eduford</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+   />
+    <title>Eduford</title>
 </head>
 <body>
-    <section class="sub-header">
+    <section class="navbar-section">
         <div class="navbar">
-            <div class="logo">
+            <div class="logo" style="margin-top:50px; margin-right: 2px;">
                 <a href="index.html"><img src="eduford_img/logo.png"></a>
             </div>
             <ul class="links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="courses">Courses</a></li>
-                <li><a href="institutions">Institutions</a></li>
+                <div class="search-container">
+                    <input type="text" placeholder="Search..">
+                </div>
             </ul>
-            <a href="" class="action_btn">Sign in</a>
-            <div class="toggle_btn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div>
-        <div class="search-container">
-            <input type="text" placeholder="Search..">
-        </div>
-        <h1>Courses</h1>
-    </section>
-    <!-- Courses content -->
-    <section class="course-section">
-        <section class="course">
-            <h1>Courses we offer</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque libero nobis distinctio nisi. Reprehenderit minima voluptates, exercitationem cumque explicabo libero neque, similique consequuntur praesentium nesciunt, excepturi repudiandae quae commodi quis.</p>
-            <div class="row">
-                <div class="course-col">
-                    <h3>Intermediate</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum et, obcaecati cupiditate consectetur quam repellendus deleniti culpa ipsum blanditiis incidunt ipsam odit! Molestiae vitae dolor eveniet similique a facere asperiores!</p>
-                </div>
-                <div class="course-col">
-                    <h3>Degree</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum et, obcaecati cupiditate consectetur quam repellendus deleniti culpa ipsum blanditiis incidunt ipsam odit! Molestiae vitae dolor eveniet similique a facere asperiores!</p>
-                </div>
-                <div class="course-col">
-                    <h3>Post Graduation</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum et, obcaecati cupiditate consectetur quam repellendus deleniti culpa ipsum blanditiis incidunt ipsam odit! Molestiae vitae dolor eveniet similique a facere asperiores!</p>
-                </div>
-            </div>
-        </section>
-        <!-- facilities -->
-        <h1>Our facilities</h1>
-        <p>lorem</p>
-        <div class="row">
-            <div class="facilities-col">
-                <img src="eduford_img/library.png">
-                <h3>World class library</h3>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores deserunt excepturi consequuntur voluptates aspernatur ipsam officia cum nihil nisi, modi ullam. Consequuntur nihil autem, quod accusantium omnis dignissimos voluptate corporis.
-                </p>
-            </div>
-            <div class="facilities-col">
-                <img src="eduford_img/basketball.png">
-                <h3>Largest Play ground</h3>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores deserunt excepturi consequuntur voluptates aspernatur ipsam officia cum nihil nisi, modi ullam. Consequuntur nihil autem, quod accusantium omnis dignissimos voluptate corporis.
-                </p>
-            </div>
-            <div class="facilities-col">
-                <img src="eduford_img/cafeteria.png">
-                <h3>Healthy Food</h3>
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores deserunt excepturi consequuntur voluptates aspernatur ipsam officia cum nihil nisi, modi ullam. Consequuntur nihil autem, quod accusantium omnis dignissimos voluptate corporis.
-                </p>
-            </div>
+            <a href="signin.html" class="action_btn sign">Sign in</a>
+            <a href="login.html" class="action_btn login">Login</a>
         </div>
     </section>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/mba.webp" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">MBA</h5>
+                    <p class="card-text">MBA stands for Master of Business Administration. First introduced by Harvard University Graduate School of Administration in 1908 (now Harvard Business School), the MBA is the original graduate degree offered by business schools globally.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-2 years</li>
+                        <li class="list-group-item">Offered by:-GRD,IIM</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="campus.html" class="card-link">Campus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/arch1.jpeg" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">B.Arch</h5>
+                    <p class="card-text">Bachelor of Architecture (BArch) course is a professional undergraduate degree, designed to prepare students for careers as architects. This five-year program, spread across ten semesters, integrates the art and science of building design and construction. </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-4 years</li>
+                        <li class="list-group-item">Offered by:-Tulas,UPES</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="campus.html" class="card-link">Card Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/eng2.jpeg" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">B.Tech</h5>
+                    <p class="card-text">The full form of BTech is Bachelor of Technology (BTech). BTech is a highly sought-after undergraduate engineering degree, offering a gateway to diverse and rewarding career opportunities in the ever-evolving technological landscape</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-4 years</li>
+                        <li class="list-group-item">Offered by:-Utranchal</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="campus.html" class="card-link">Card Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/bsc.webp" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">BSc</h5>
+                    <p class="card-text">Bachelor of Science (BSc) is an undergraduate academic degree awarded for completed courses in science. The full form of BSc is Bachelor of Science. It is a three-year course after 12th grade or equivalent.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-3 years</li>
+                        <li class="list-group-item">Offered by:-JBIET</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="campus.html" class="card-link">Card Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="rowf">
+            <div class="colf">
+                <img src="eduford_img/logo.png" class="logof">
+                <li>Eduford is an educational platform dedicated to providing information about the courses one must be willing to pursue, relevant colleges and other career prospects</li>
+            </div>
+            <div class="colf">
+                <h3>Trending streams<div class="underline"><span></span></div></h3>
+                <ul>
+                    <li>Engineering</li>
+                    <li>Management</li>
+                    <li>Medical</li>
+                    <li>Design</li>
+                    <li>Pharmacy</li>
+                </ul>
+            </div>
+            <div class="colf">
+                <h3>Trending Courses<div class="underline"><span></span></h3>
+                <ul>
+                    <li>B.Tech</li>
+                    <li>MBA</li>
+                    <li>MBBS</li>
+                    <li>B.Des</li>
+                    <li>B.Pharma</li>
+                </ul>
+            </div>
+            <div class="colf">
+                <h3>Newsletter<div class="underline"><span></span></h3>
+                <form>
+                    <i class="fa-solid fa-envelope" style="margin-right:8px;"></i>
+                    <input type="email" placeholder="Enter your email id" required>
+                    <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                </form>
+                <div class="social-icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-pinterest"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
+

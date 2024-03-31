@@ -1,0 +1,465 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* navbar */
+.navbar-section {
+    width: 100%;
+    z-index: 1000;
+    height: 100vh;
+    background-color: black;
+    background-image: url('eduford_img/campus.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+li {
+    list-style: none;
+}
+
+.links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.links a:hover {
+    color: orange;
+}
+
+header {
+    position: relative;
+    padding: 0 2 rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.search-container {
+    margin-left: 120px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.search-container input[type="text"]:hover {
+    border: 2px solid #000;
+    border-radius: 20px;
+}
+
+.action_btn {
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.sign {
+    min-width: 80px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.login {
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+@media(min-width:700px) {
+    .sign {
+        min-width: 80px;
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+
+    .login {
+        margin-left: 15px;
+        margin-top: 30px;
+    }
+
+}
+
+.action_btn:hover {
+    scale: 1.05;
+    color: #fff;
+}
+
+.action_btn:active {
+    scale: 0.95;
+    border: none;
+}
+
+input[type=text] {
+    float: right;
+    padding: 8px;
+    margin-top: 0px;
+    margin-right: 200px;
+    border: none;
+    font-size: 25px;
+    border-radius: 20px;
+    width: 400px;
+}
+
+.text-box {
+    margin-top: 350px;
+    text-align: center;
+}
+
+.hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 20px 34px;
+    font-size: 20px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.hero-btn:hover {
+    border: 1px solid orange;
+    background: orange;
+}
+
+/* Global styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.heading h1 {
+    color: #ff6347;
+    font-size: 55px;
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/* Hero content styles */
+.hero-content {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.hero-content h2 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-content p {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.hero-content button {
+    display: inline-block;
+    background-color: #ff4500;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content button:hover {
+    background-color: #ff6347;
+}
+
+/* Hero image styles */
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 75%;
+    max-width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.contact-info1 {
+    align-items: center;
+}
+
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+
+    .container,
+    .container1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-content,
+    .hero-image {
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .hero-content h2 {
+        font-size: 30px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Add this class to elements that you want to animate when scrolling */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to right, #00093c, #2d0b00);
+    color: #fff;
+    padding: 100px 0 30px;
+    font-size: 13px;
+}
+
+.rowf {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.colf {
+    flex-basis: 25%;
+    padding: 10px
+}
+
+.colf:nth-child(2),
+.colf:nth-child(3) {
+    flex-basis: 15%;
+}
+
+.logof {
+    width: 80px;
+    margin-bottom: 40px;
+}
+
+.colf h3 {
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.colf ul li {
+    list-style: none;
+    margin-bottom: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+form {
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+form .far {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+form input {
+    width: 100%;
+    background: transparent;
+    color: #ccc;
+    border: 0;
+    outline: none;
+}
+
+form button {
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+form button .fas {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.social-icons .fa-brands {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.underline {
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+
+.underline span {
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    animation: moving 2s linear infinite;
+}
+
+@keyframes moving {
+    0% {
+        left: -20px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* about us */
+.sub-header {
+    padding-top: 0;
+    padding-left: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('eduford_img/background.jpg');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+}
+
+.sub-header h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 3.5em;
+    margin-top: 32vh;
+    color: #fff;
+}
+
+.about-us {
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.about-col {
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+
+.about-col img {
+    width: 100%;
+}
+
+.about-col h3 {
+    padding-top: 0;
+}
+
+.about-col p {
+    padding-top: 15px 0 25px;
+}
+
+.about-col a {
+    color: black;
+}
