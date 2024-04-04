@@ -64,7 +64,7 @@ header {
 }
 
 .search-container {
-  margin-left: 120px;
+  margin-left: 170px;
   margin-right: 20px;
   margin-top: 30px;
 }
@@ -132,7 +132,6 @@ input[type=text] {
   border-radius: 20px;
   width: 400px;
 }
-
 .text-box {
   margin-top: 350px;
   text-align: center;

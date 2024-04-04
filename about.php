@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,23 +125,60 @@
        padding: 0 1em;
      }
    }
+   .action_btn1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-container input[type="text"] {
+    width: 350px; /* Adjust this value to your liking */
+}
+.search-container{
+    margin-left: 170px;
+}
+.oldBtn{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.newBtn{
+    margin-right: 35px;
+    margin-top: 25px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 </style>
 <body>
     <section class="sub-header">
         <div class="navbar">
             <div class="logo" style="margin-top:50px; margin-right: 2px;">
-                <a href="index.html"><img src="eduford_img/logo.png"></a>
+                <a href="index.php"><img src="eduford_img/logo.png"></a>
             </div>
             <ul class="links">
             <div class="search-container" style=" margin-top: 30px;">
                 <input type="text" placeholder="Search.." style="font-size: 25px;">
             </div>
           </ul>
-            <a href="signin.html" class="action_btn sign" >Sign in</a>
-            <a href="login.html" class="action_btn login"> Login</a>
-            <div class="toggle_btn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
+          <?php if (!isset($_SESSION['username'])): ?>
+            
+            <a href="signin.php" class="action_btn sign oldBtn" style="margin-left: 10px; ">Sign in</a>
+            <a href="login.php" class="action_btn login oldBtn" style="margin-left: 15px;">Login</a>
+            
+        <?php else: ?>
+            <div class="action_btn action_btn1 fas fa-user username newBtn"> <?= $_SESSION['username'] ?></div>
+            <a href="logout.php" class="action_btn logout newBtn">Logout</a>
+        <?php endif; ?>
         </div>
         <h1>About us</h1>
     </section>

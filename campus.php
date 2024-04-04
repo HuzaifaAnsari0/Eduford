@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +19,67 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
+   <link
+     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
+     rel="stylesheet"
+   />
     <title>Eduford</title>
 </head>
+<style>
+    .action_btn1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-container input[type="text"] {
+    width: 350px; /* Adjust this value to your liking */
+}
+.search-container{
+    margin-left: 170px;
+}
+.oldBtn{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
+}
+.newBtn{
+    margin-right: 35px;
+    margin-top: 25px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+</style>
 <body>
     <section class="navbar-section">
         <div class="navbar">
             <div class="logo" style="margin-top:50px; margin-right: 2px;">
-                <a href="index.html"><img src="eduford_img/logo.png"></a>
+                <a href="index.php"><img src="eduford_img/logo.png"></a>
             </div>
             <ul class="links">
                 <div class="search-container">
                     <input type="text" placeholder="Search..">
                 </div>
             </ul>
-            <a href="signin.html" class="action_btn sign">Sign in</a>
-            <a href="login.html" class="action_btn login">Login</a>
+            <?php if (!isset($_SESSION['username'])): ?>
+            
+            <a href="signin.php" class="action_btn sign oldBtn" style="margin-left: 10px; ">Sign in</a>
+            <a href="login.php" class="action_btn login oldBtn" style="margin-left: 15px;">Login</a>
+            
+        <?php else: ?>
+            <div class="action_btn action_btn1 fas fa-user username newBtn"> <?= $_SESSION['username'] ?></div>
+            <a href="logout.php" class="action_btn logout newBtn">Logout</a>
+        <?php endif; ?>
         </div>
     </section>
     <section class="hero">

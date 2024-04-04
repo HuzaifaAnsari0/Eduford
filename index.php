@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,53 +25,64 @@
     <title>Eduford</title>
     <script src="https://kit.fontawesome.com/410cc890ec.js" crossorigin="anonymous"></script>
 </head>
-<script>
-//     window.addEventListener('scroll', function() {
-//     const elements = document.querySelectorAll('.testimonial-col');
+<style>
+.action_btn1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-container input[type="text"] {
+    width: 350px; /* Adjust this value to your liking */
+}
+.search-container{
+    margin-left: 170px;
+}
+.oldBtn{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-//     elements.forEach(element => {
-//         const position = element.getBoundingClientRect();
-
-//         // check whether the element is in the viewport
-//         if(position.top >= 0 && position.bottom <= window.innerHeight) {
-//             element.classList.add('animateR');
-//         } else {
-//             element.classList.remove('animateR');
-//         }
-//     });
-// });
-
-window.addEventListener('scroll', function() {
-    const elements = document.querySelectorAll('.testimonial-col');
-
-    elements.forEach(element => {
-        const position = element.getBoundingClientRect();
-
-        // check whether the element is in the viewport
-        if(position.top >= 0 && position.bottom <= window.innerHeight) {
-            element.classList.add('animateD');
-        } else {
-            element.classList.remove('animateD');
-        }
-    });
-});
-</script>
+}
+.newBtn{
+    margin-right: 35px;
+    margin-top: 25px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+</style>
 <body>
     <section class="navbar-section">
         <div class="navbar">
             <div class="logo" style="margin-top:50px; margin-right: 2px;">
-                <a href="index.html"><img src="eduford_img/logo.png"></a>
+                <a href="index.php"><img src="eduford_img/logo.png"></a>
             </div>
             <ul class="links">
                 <div class="search-container">
                     <input type="text" placeholder="Search..">
                 </div>
             </ul>
-            <a href="signin.php" class="action_btn sign">Sign in</a>
-            <a href="login.php" class="action_btn login">Login</a>
+            <?php if (!isset($_SESSION['username'])): ?>
+            
+        <a href="signin.php" class="action_btn sign oldBtn" style="margin-left: 10px; ">Sign in</a>
+        <a href="login.php" class="action_btn login oldBtn" style="margin-left: 15px;">Login</a>
+        
+    <?php else: ?>
+        <div class="action_btn action_btn1 fas fa-user username newBtn"> <?= $_SESSION['username'] ?></div>
+        <a href="logout.php" class="action_btn logout newBtn">Logout</a>
+    <?php endif; ?>
         </div>
         <div class="text-box">
-            <a href="about.html" class="hero-btn"><b>About us</b></a>
+            <a href="about.php" class="hero-btn"><b>About us</b></a>
         </div>
         
     </section>
@@ -78,25 +94,25 @@ window.addEventListener('scroll', function() {
                     <img src="eduford_img/washington.png">
                     <h3>UPES Dehradun</h3>
                     <p>UPES ranked the No. 1 private university in academic reputation in India by the QS World University Rankings 2024 and is among the top 3% of universities in the world.</p>
-                    <a href="campus.html" class="action_btn">Read more</a>
+                    <a href="campus.php" class="action_btn">Read more</a>
                 </div>
                 <div class="course-col">
                     <img src="eduford_img/JBIT.jpeg">
                     <h3>JBIET Dehradun</h3>
                     <p>JBIET is one among the best 10 Engineering Colleges of the Telangana State, and is also the most preferred institution for aspiring students and their parents.</p>
-                    <a href="campus.html" class="action_btn">Read more</a>
+                    <a href="campus.php" class="action_btn">Read more</a>
                 </div>
                 <div class="course-col">
                     <img src="eduford_img/Utranchal.jpeg">
                     <h3>Utranchal university</h3>
                     <p>Uttaranchal University is ranked among the Top 50 general private universities in India by India Today's best universities in India survey August 2022 · </p>
-                    <a href="campus.html" class="action_btn">Read more</a>
+                    <a href="campus.php" class="action_btn">Read more</a>
                 </div>
                 <div class="course-col">
                     <img src="eduford_img/GRD.jpeg">
                     <h3>GRD university</h3>
                     <p>GRD Institute of Management & Technology is top engineering colleges in Dehradun, offering top-notch B.tech, Diploma, Pharmacy & Mgt. courses.</p>
-                    <a href="campus.html" class="action_btn">Read more</a>
+                    <a href="campus.php" class="action_btn">Read more</a>
                 </div>
                 <div class="course-col">
                     <img src="eduford_img/dev.jpeg">
@@ -104,13 +120,13 @@ window.addEventListener('scroll', function() {
                     <p>Dev Bhoomi Uttarakhand University
                         The Best University in Dehradun, Uttarakhand
                         Dev Bhoomi Uttarakhand University is a non-profit, self-governed organisation that offers unique and advanced academic models designed mainly to train industry-ready individuals. </p>
-                    <a href="campus.html" class="action_btn">Read more</a>
+                    <a href="campus.php" class="action_btn">Read more</a>
                 </div>
                 <div class="course-col">
                     <img src="eduford_img/tulas.jpeg">
                     <h3>Tulas University</h3>
                     <p>Tula's Institute established in the year 2006, is a renowned educational institution located in Dehradun, Uttarakhand. It provides a wide range of Degree</p>
-                    <a href="campus.html" class="action_btn">Read more</a>
+                    <a href="campus.php" class="action_btn">Read more</a>
                 </div>
             </div>
         </section>
@@ -193,7 +209,7 @@ window.addEventListener('scroll', function() {
                 </div>
             </div>
         </div>
-        <a href="courses.html" class="action_btn">Explore</a>
+        <a href="courses.php" class="action_btn">Explore</a>
     </section>
     <section class="testimonials">
         <h1>What our students say</h1>
@@ -217,7 +233,7 @@ window.addEventListener('scroll', function() {
                 <div>
                     <p>
                         Eduford streamlines the college search process by offering a user-friendly interface and comprehensive details on fees, courses, and locations. With regular updates and transparent insights, it's an invaluable resource for students making informed higher education decisions.</p>
-                    <h3>Huzaifa Ansari</h3>
+                    <h3>Zack</h3>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -230,7 +246,7 @@ window.addEventListener('scroll', function() {
      <!-- call to action -->
      <section class="cta">
         <h1>Enroll to various course anywhere from the world</h1>
-        <a href="contact.html" class="action_btn">Contact us</a>
+        <a href="contact.php" class="action_btn">Contact us</a>
     </section>
     <footer>
         <div class="rowf">
