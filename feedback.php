@@ -1,3 +1,33 @@
+<?php
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['satisfy2']) && isset($_POST['msg'])){
+
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $satisfied = $_POST['satisfy2'];
+            $suggestion = $_POST['msg'];
+
+            $conn = pg_connect("host=localhost port=5432 dbname=Eduford user=postgres password=1234");
+
+            if(!$conn){
+                die("Connection failed: " . pg_last_error());
+            }
+
+            $query = "INSERT INTO feedbacks (f_name, f_email, f_phno, f_satisfied, f_suggestion) VALUES ($1, $2, $3, $4, $5)";
+            $res = pg_query_params($conn, $query, array($name, $email, $phone, $satisfied, $suggestion));
+
+            if(!$res){
+                die("Query failed: "  . pg_last_error());
+            }
+
+            header('location:index.php'); // Redirect to home page after successful submission
+            exit(); // Ensure the script stops here
+        } else {
+            echo "Form data not received";
+        }
+    }
+?>
 <!DOCTYPE html> 
 <html lang="en"> 
 
@@ -19,13 +49,13 @@
 			<i class="fa fa-solid fa-clock"></i> 
 			It only takes two minutes!! 
 		</div> 
-		<form> 
+		<form method="POST" action=""> 
 			<label for="uname"> 
 				<i class="fa fa-solid fa-user"></i> 
 				Name 
 			</label> 
 			<input type="text" id="uname"
-				name="uname" required> 
+				name="name" required> 
 
 			<label for="email"> 
 				<i class="fa fa-solid fa-envelope"></i> 

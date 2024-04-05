@@ -71,7 +71,7 @@
           />
           <input type="tel" name="phone" placeholder="Phone Number" required />
           <input type="date" name="dob" placeholder="Date of Birth" required />
-          <button type="submit" na,e value="signin">Sign Up</button>
+          <button type="submit" value="signin">Sign Up</button>
         </form>
         <p>Already have an account? <a href="login.php">Login</a></p>
       </div>
