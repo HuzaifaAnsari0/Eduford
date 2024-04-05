@@ -59,6 +59,31 @@ session_start();
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.feedback-button {
+  height: fit-content;
+    padding: 1px 5px;
+  background: orange;
+  border-radius: 5px;
+  width: fit-content;
+  line-height: 32px;
+  -webkit-transform: rotate(-90deg);
+  font-weight: 600;
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  text-align: center;
+  font-size: 16px;
+  position: fixed;
+  right: -30px;
+  top: 45%;
+  font-family: 'Poppins', sans-serif;
+  z-index: 999;
+}
+#feedback-main {
+  display: none;
+  float: left;
+  padding-top: 0px;
+}
 </style>
 <body>
     <section class="navbar-section">
@@ -83,9 +108,9 @@ session_start();
         </div>
         <div class="text-box">
             <a href="about.php" class="hero-btn"><b>About us</b></a>
-        </div>
-        
+        </div>     
     </section>
+    <a href ="feedback.php"><button id="popup" class="feedback-button" onclick="toggle_visibility()" style="color:black">Feedback</button></a>
     <section class="course-section">
         <section class="course">
             <h1>Feature colleges/universities</h1>  
@@ -290,5 +315,14 @@ session_start();
             </div>
         </div>
     </footer>
+    <script>
+    function toggle_visibility() {
+        var e = document.getElementById('feedback-main');
+        if(e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+</script>
 </body>
 </html>
