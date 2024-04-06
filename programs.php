@@ -1,5 +1,19 @@
 <?php
 session_start();
+
+$host = "localhost";
+$dbname = "Eduford";
+$user = "postgres";
+$password = "1234";
+
+// Create connection
+$conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . pg_last_error());
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +22,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="eduford_img/onlyCap.png">
-    <link rel="stylesheet" href="courses.css">
+    <link rel="stylesheet" href="programs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
@@ -79,6 +93,15 @@ session_start();
   float: left;
   padding-top: 0px;
 }
+.heading h1 {
+    margin-top: 20px;
+    text-align: center;
+    color: #ff6347;
+    font-size: 55px;
+}
+.navbar-section{
+    background-image: url('eduford_img/courseHeader.jpeg');
+}
 </style>
 <body>
     <section class="navbar-section">
@@ -104,7 +127,46 @@ session_start();
     </section>
     <a href ="feedback.php"><button id="popup" class="feedback-button" onclick="toggle_visibility()" style="color:black">Feedback</button></a>
 
-    <div class="container">
+    <div class="heading">
+            <h1>Programs</h1>
+        </div>
+    <?php
+// ... rest of your PHP code ...
+
+if (!$conn) {
+    die("Connection failed: " . pg_last_error());
+}
+
+$query = "SELECT * FROM programs";
+$result = pg_query($conn, $query);
+
+if (pg_num_rows($result) > 0) {
+    echo '<div class="container">';
+    // output data of each row
+    while($row = pg_fetch_assoc($result)) {
+        echo '<div class="card">
+                <div class="card-content">
+                    <img src="' . $row["p_image"] . '" class="card-img-top" alt="Placeholder Image">
+                    <div class="overlay">
+                        <h5 class="card-title">' . $row["p_name"] . '</h5>
+                        <p class="card-text">' . $row["p_description"] . '</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Course duration: ' . $row["p_duration"] . '</li>
+                            <li class="list-group-item">Course fees: ' . $row["p_fees"] . '</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>';
+    }
+    echo '</div>';
+} else {
+    echo "0 results";
+}
+pg_close($conn);
+
+// ... rest of your PHP code ...
+?>
+    <!-- <div class="container">
         <div class="card">
             <div class="card-content">
                 <img src="eduford_img/mba.webp" class="card-img-top" alt="Placeholder Image">
@@ -159,8 +221,8 @@ session_start();
                 </div>
             </div>
         </div>
-    </div>
-    <footer>
+    </div> -->
+    <footer style="margin-top:30px">
         <div class="rowf">
             <div class="colf">
                 <img src="eduford_img/logo.png" class="logof">

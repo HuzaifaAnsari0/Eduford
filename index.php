@@ -196,7 +196,7 @@ pg_close($conn);
         </section> -->
     </section>
     <section class="campus">
-        <h1>Courses</h1>
+        <h1>Programs</h1>
         <div class="row">
             <div class="campus-col">
                 <img src="eduford_img/eng.jpeg">  
@@ -273,7 +273,7 @@ pg_close($conn);
                 </div>
             </div>
         </div>
-        <a href="courses.php" class="action_btn">Explore</a>
+        <a href="programs.php" class="action_btn">Explore</a>
     </section>
     <section class="testimonials">
         <h1>What our students say</h1>

@@ -20,7 +20,11 @@
 li {
     list-style: none;
 }
-
+.heading h1 {
+    text-align: center;
+    color: #ff6347;
+    font-size: 55px;
+}
 .links a {
     text-decoration: none;
     color: #fff;
