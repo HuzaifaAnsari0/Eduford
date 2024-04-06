@@ -1,5 +1,24 @@
 <?php
 session_start();
+
+
+$host = "localhost";
+$dbname = "Eduford";
+$user = "postgres";
+$password = "1234";
+
+// Create connection
+$conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . pg_last_error());
+}
+
+// SQL query to fetch institution data
+$sql = "SELECT * FROM Institutions";
+$result = pg_query($conn, $sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -84,6 +103,9 @@ session_start();
   float: left;
   padding-top: 0px;
 }
+.cta-button{
+    margin-left: 10px;
+}
 </style>
 <body>
     <section class="navbar-section">
@@ -112,7 +134,39 @@ session_start();
         <div class="heading">
             <h1>Campuses</h1>
         </div>
-        <div class="container animate-on-scroll">
+        <?php
+// ... rest of your PHP code ...
+
+if (pg_num_rows($result) > 0) {
+    // output data of each row
+    while($row = pg_fetch_assoc($result)) {
+        echo '<div class="container animate-on-scroll">
+            <div class="hero-content">
+                <h2>' . $row["i_name"] . '</h2>
+                <p>' . $row["i_description"] . '</p>
+                <div class="contact-info1">
+                    <i class="fa fa-phone"> ' . $row["i_contactno"] . ' </i>
+                </div> 
+                <br>
+                <div class="contact-info1">
+                    <i class="fa fa-envelope"> ' . $row["i_email"] . '</i>
+                </div>
+                <br>
+                <p>Fees<button class="cta-button"> ' . $row["i_fees"] . '</button></p>
+            </div>
+            <div class="hero-image">
+                <img src="' . $row["i_image"] . '">
+            </div>
+        </div>';
+    }
+} else {
+    echo "0 results";
+}
+pg_close($conn);
+
+// ... rest of your PHP code ...
+?>
+        <!-- <div class="container animate-on-scroll">
             <div class="hero-content">
                 <h2>Tulas university</h2>
                 <p>Discover our colleges</p>
@@ -219,7 +273,7 @@ session_start();
                 <br>
                 <p>Fees<button class="cta-button"> 45000</button></p>
             </div>
-        </div>
+        </div> -->
     </section>
     <footer>
         <div class="rowf">

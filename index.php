@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+$dbhost = "localhost";
+$dbname = "Eduford";
+$dbuser = "postgres";
+$dbpass = "1234";
+
+$conn = pg_connect("host=$dbhost dbname=$dbname user=$dbuser password=$dbpass");
+
+if (!$conn) {
+    die("Connection failed: " . pg_last_error());
+}
 ?>
 
 
@@ -112,7 +123,35 @@ session_start();
     </section>
     <a href ="feedback.php"><button id="popup" class="feedback-button" onclick="toggle_visibility()" style="color:black">Feedback</button></a>
     <section class="course-section">
-        <section class="course">
+
+    <?php
+// ... rest of your PHP code ...
+
+$query = "SELECT * FROM institutions";
+$result = pg_query($conn, $query);
+
+if (pg_num_rows($result) > 0) {
+    echo '<section class="course">
+            <h1>Feature colleges/universities</h1>  
+            <div class="row">';
+    // output data of each row
+    while($row = pg_fetch_assoc($result)) {
+        echo '<div class="course-col">
+                <img src="' . $row["i_image"] . '">
+                <h3>' . $row["i_name"] . '</h3>
+                <p>' . $row["i_description"] . '</p>
+                <a href="campus.php" class="action_btn">Read more</a>
+            </div>';
+    }
+    echo '</div></section>';
+} else {
+    echo "0 results";
+}
+pg_close($conn);
+
+// ... rest of your PHP code ...
+?>
+        <!-- <section class="course">
             <h1>Feature colleges/universities</h1>  
             <div class="row">
                 <div class="course-col">
@@ -154,7 +193,7 @@ session_start();
                     <a href="campus.php" class="action_btn">Read more</a>
                 </div>
             </div>
-        </section>
+        </section> -->
     </section>
     <section class="campus">
         <h1>Courses</h1>
