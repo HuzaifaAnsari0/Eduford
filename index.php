@@ -42,12 +42,12 @@ if (!$conn) {
     align-items: center;
     gap: 10px;
 }
-.search-container input[type="text"] {
+/* .search-container input[type="text"] {
     width: 350px; /* Adjust this value to your liking */
-}
+/* }
 .search-container{
     margin-left: 170px;
-}
+} */ 
 .oldBtn{
     width: fit-content;
     margin-left: auto;
@@ -95,6 +95,44 @@ if (!$conn) {
   float: left;
   padding-top: 0px;
 }
+.search-container input[type="text"] {
+    width: 350px; /* Adjust this value to your liking */
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.search-container input[type="text"]:hover {
+    border: 2px solid black;
+    border-radius: 13px;
+}
+.search-container button[type="submit"] {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button[type="submit"]:hover {
+    background-color: darkorange;
+}
+form {
+    margin-bottom: -10px;
+    border-bottom: 1px solid black;
+}
+input[type=text] {
+    margin-right: 20px;
+}
+.search-input::placeholder {
+    color: black;
+}
 </style>
 <body>
     <section class="navbar-section">
@@ -103,17 +141,20 @@ if (!$conn) {
                 <a href="index.php"><img src="eduford_img/logo.png"></a>
             </div>
             <ul class="links">
-                <div class="search-container">
-                    <input type="text" placeholder="Search..">
-                </div>
+            <div class="search-container">
+                <form action="search.php" method="GET">
+                    <input type="text" name="query" placeholder="Search.." class="search-input">
+                    <button type="submit" class="search-button" style="color:black">Search</button>
+                </form>
+            </div>
             </ul>
             <?php if (!isset($_SESSION['username'])): ?>
             
-        <a href="signin.php" class="action_btn sign oldBtn" style="margin-left: 10px; ">Sign in</a>
+        <a href="signin.php" class="action_btn sign oldBtn" style="margin-left: 92px; ">Sign in</a>
         <a href="login.php" class="action_btn login oldBtn" style="margin-left: 15px;">Login</a>
         
     <?php else: ?>
-        <div class="action_btn action_btn1 fas fa-user username newBtn"> <?= $_SESSION['username'] ?></div>
+        <div class="action_btn action_btn1 fas fa-user username newBtn" style="margin-left: 92px;" > <?= $_SESSION['username'] ?></div>
         <a href="logout.php" class="action_btn logout newBtn">Logout</a>
     <?php endif; ?>
         </div>
