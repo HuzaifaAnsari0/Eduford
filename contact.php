@@ -95,6 +95,31 @@ session_start();
     cursor: pointer;
     transition: all 0.3s ease;
 }
+.feedback-button {
+  height: fit-content;
+    padding: 1px 5px;
+  background: orange;
+  border-radius: 5px;
+  width: fit-content;
+  line-height: 32px;
+  -webkit-transform: rotate(-90deg);
+  font-weight: 600;
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  text-align: center;
+  font-size: 16px;
+  position: fixed;
+  right: -30px;
+  top: 45%;
+  font-family: 'Poppins', sans-serif;
+  z-index: 999;
+}
+#feedback-main {
+  display: none;
+  float: left;
+  padding-top: 0px;
+}
 </style>
 <body>
     <section class="sub-header1">
@@ -120,6 +145,8 @@ session_start();
         </div>
         <h1>Contact us</h1>
     </section>
+    <a href ="feedback.php"><button id="popup" class="feedback-button" onclick="toggle_visibility()" style="color:black">Feedback</button></a>
+
     <!-- Contact us -->
     <section class="location">
         <iframe
@@ -237,6 +264,15 @@ session_start();
             });
         });
         </script>
+        <script>
+    function toggle_visibility() {
+        var e = document.getElementById('feedback-main');
+        if(e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+</script>
 </body>
 
 </html>
