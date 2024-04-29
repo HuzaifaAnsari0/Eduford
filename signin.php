@@ -2,11 +2,36 @@
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         if(isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['phone']) && isset($_POST['dob'])){
 
-            $fullname = $_POST['fullname'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $phone = $_POST['phone'];
-            $dob = $_POST['dob'];
+
+            // Validate fullname
+            $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
+            if (!$fullname) {
+                die("Invalid fullname");
+            }
+
+            // Validate email
+            $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+            if (!$email) {
+                die("Invalid email");
+            }
+
+            // Validate password
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            if (!$password) {
+                die("Invalid password");
+            }
+
+            // Validate phone
+            $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
+            if (!$phone) {
+                die("Invalid phone number");
+            }
+
+            // Validate dob
+            $dob = filter_input(INPUT_POST, 'dob', FILTER_SANITIZE_STRING);
+            if (!$dob) {
+                die("Invalid date of birth");
+            }
 
             $conn = pg_connect("host=localhost port=5432 dbname=Eduford user=postgres password=1234");
 

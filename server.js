@@ -1,25 +1,30 @@
 const express = require('express');
 const cors = require('cors');
-
-const app = express();
-
-app.use(cors()); // Enable CORS
 const path = require('path');
 const bodyParser = require('body-parser');
 const sendEmail = require('./sendEmail');
+const phpExpress = require('php-express')({
+  binPath: 'php' // assumes php is in your PATH
+});
+const app = express();
 
+// set the engine
+app.engine('php', phpExpress.engine);
+app.set('view engine', 'php');
+
+app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'contact.html'));
+    res.render(path.join(__dirname, 'contact.php'));
   });
 
   app.post('/send-email', async (req, res) => {
     const { name, email, subject, message } = req.body;
-  
+
     try {
       await sendEmail(
         'huzaifa.a@somaiya.edu',
@@ -27,7 +32,7 @@ app.get('/', (req, res) => {
         `${subject}`,
         message
       );
-  
+
       res.json({ status: 'Email sent' });
     } catch (error) {
       console.error(error);

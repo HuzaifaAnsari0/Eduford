@@ -250,7 +250,7 @@ input[type=text] {
                 </ul>
             </div>
             <div class="colf">
-                <h3>Trending Courses<div class="underline"><span></span></h3>
+                <h3>Trending Programs<div class="underline"><span></span></h3>
                 <ul>
                     <li>B.Tech</li>
                     <li>MBA</li>
@@ -266,7 +266,7 @@ input[type=text] {
                     <input type="email" placeholder="Enter your email id" required>
                     <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
                 </form>
-                <div class="social-icons">
+                <div class="social-icons" style="margin-top:50px">
                     <i class="fa-brands fa-facebook-f"></i>
                     <i class="fa-brands fa-twitter"></i>
                     <i class="fa-brands fa-instagram"></i>
@@ -279,10 +279,10 @@ input[type=text] {
     <script>
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
-        
+
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
-        
+
             fetch('http://localhost:3000/send-email', {
                 method: 'POST',
                 headers: {

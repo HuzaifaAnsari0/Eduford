@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
+    exit();
+}
+
 $host = "localhost";
 $dbname = "Eduford";
 $user = "postgres";
@@ -279,7 +284,7 @@ pg_close($conn);
                 </ul>
             </div>
             <div class="colf">
-                <h3>Trending Courses<div class="underline"><span></span></h3>
+                <h3>Trending Programs<div class="underline"><span></span></h3>
                 <ul>
                     <li>B.Tech</li>
                     <li>MBA</li>
@@ -295,7 +300,7 @@ pg_close($conn);
                     <input type="email" placeholder="Enter your email id" required>
                     <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
                 </form>
-                <div class="social-icons">
+                <div class="social-icons" style="margin-top:50px">
                     <i class="fa-brands fa-facebook-f"></i>
                     <i class="fa-brands fa-twitter"></i>
                     <i class="fa-brands fa-instagram"></i>
