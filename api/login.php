@@ -48,7 +48,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduford</title>
-    <link rel="icon" type="image/x-icon" href="eduford_img/onlyCap.png">
+    <link rel="icon" type="image/x-icon" href="onlyCap.png">
     <link rel="stylesheet" href="signin.css">
 </head>
 <style>

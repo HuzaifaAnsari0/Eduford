@@ -19,29 +19,20 @@ if (!$conn) {
   die("Connection failed: " . pg_last_error());
 }
 
-// SQL query to fetch institution data
-$sql = "SELECT * FROM Institutions";
-$result = pg_query($conn, $sql);
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="campus.css">
-    <link rel="icon" type="image/x-icon" href="eduford_img/onlyCap.png">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="onlyCap.png">
+    <link rel="stylesheet" href="programs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
    <link
      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap"
      rel="stylesheet"
@@ -107,8 +98,14 @@ $result = pg_query($conn, $sql);
   float: left;
   padding-top: 0px;
 }
-.cta-button{
-    margin-left: 10px;
+.heading h1 {
+    margin-top: 20px;
+    text-align: center;
+    color: #ff6347;
+    font-size: 55px;
+}
+.navbar-section{
+    background-image: url('eduford_img/courseHeader.jpeg');
 }
 .search-container input[type="text"] {
     width: 350px; /* Adjust this value to your liking */
@@ -117,7 +114,7 @@ $result = pg_query($conn, $sql);
     border-radius: 10px;
     outline: none;
     font-size: 16px;
-    color: white;
+    color: black;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .search-container input[type="text"]:hover {
@@ -174,35 +171,39 @@ input[type=text] {
         </div>
     </section>
     <a href ="feedback.php"><button id="popup" class="feedback-button" onclick="toggle_visibility()" style="color:black">Feedback</button></a>
-    <section class="hero">
-        <div class="heading">
-            <h1>Campuses</h1>
+
+    <div class="heading">
+            <h1>Programs</h1>
         </div>
-        <?php
+    <?php
 // ... rest of your PHP code ...
 
+if (!$conn) {
+    die("Connection failed: " . pg_last_error());
+}
+
+$query = "SELECT * FROM programs";
+$result = pg_query($conn, $query);
+
 if (pg_num_rows($result) > 0) {
+    echo '<div class="container">';
     // output data of each row
     while($row = pg_fetch_assoc($result)) {
-        echo '<div class="container animate-on-scroll">
-            <div class="hero-content">
-                <h2>' . $row["i_name"] . '</h2>
-                <p>' . $row["i_description"] . '</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> ' . $row["i_contactno"] . ' </i>
-                </div> 
-                <br>
-                <div class="contact-info1">
-                    <i class="fa fa-envelope"> ' . $row["i_email"] . '</i>
+        echo '<div class="card">
+                <div class="card-content">
+                    <img src="' . $row["p_image"] . '" class="card-img-top" alt="Placeholder Image">
+                    <div class="overlay">
+                        <h5 class="card-title">' . $row["p_name"] . '</h5>
+                        <p class="card-text">' . $row["p_description"] . '</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Course duration: ' . $row["p_duration"] . '</li>
+                            <li class="list-group-item">Course fees: ' . $row["p_fees"] . '</li>
+                        </ul>
+                    </div>
                 </div>
-                <br>
-                <p>Fees<button class="cta-button"> ' . $row["i_fees"] . '</button></p>
-            </div>
-            <div class="hero-image">
-                <img src="' . $row["i_image"] . '">
-            </div>
-        </div>';
+            </div>';
     }
+    echo '</div>';
 } else {
     echo "0 results";
 }
@@ -210,116 +211,63 @@ pg_close($conn);
 
 // ... rest of your PHP code ...
 ?>
-        <!-- <div class="container animate-on-scroll">
-            <div class="hero-content">
-                <h2>Tulas university</h2>
-                <p>Discover our colleges</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> +91 123456789 </i>
-                </div> 
-                <br>
-                <div class="contact-info1">
-                    <i class="fa fa-envelope"> info@tulas.edu</i>
+    <!-- <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/mba.webp" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">MBA</h5>
+                    <p class="card-text">MBA stands for Master of Business Administration. First introduced by Harvard University Graduate School of Administration in 1908 (now Harvard Business School), the MBA is the original graduate degree offered by business schools globally.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-2 years</li>
+                        <li class="list-group-item">Offered by:-GRD,IIM</li>
+                    </ul>
                 </div>
-                <br>
-                <p>Fees<button class="cta-button"> 80000</button></p>
-            </div>
-            <div class="hero-image">
-                <img src="eduford_img/tulas1.jpeg">
             </div>
         </div>
-        <div class="container animate-on-scroll">
-            <div class="hero-image">
-                <img src="eduford_img/utranchal2.jpeg">
-            </div>
-            <div class="hero-content">
-                <h2>Utranchal university</h2>
-                <p>Discover our colleges</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> +91 123456789 </i>
-                </div> 
-                <br>
-                <div class="contact-info1 ">
-                    <i class="fa fa-envelope"> info@utc.edu</i>
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/arch1.jpeg" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">B.Arch</h5>
+                    <p class="card-text">Bachelor of Architecture (BArch) course is a professional undergraduate degree, designed to prepare students for careers as architects. This five-year program, spread across ten semesters, integrates the art and science of building design and construction. </p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-4 years</li>
+                        <li class="list-group-item">Offered by:-Tulas,UPES</li>
+                    </ul>
                 </div>
-                <br>
-                <p>Fees<button class="cta-button"> 60000</button></p>
             </div>
         </div>
-        <div class="container animate-on-scroll">
-            <div class="hero-content">
-                <h2>JBIET university</h2>
-                <p>Discover our colleges</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> +91 123456789 </i>
-                </div> 
-                <br>
-                <div class="contact-info1">
-                    <i class="fa fa-envelope"> info@jbiet.edu</i>
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/eng2.jpeg" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">B.Tech</h5>
+                    <p class="card-text">The full form of BTech is Bachelor of Technology (BTech). BTech is a highly sought-after undergraduate engineering degree, offering a gateway to diverse and rewarding career opportunities in the ever-evolving technological landscape</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-4 years</li>
+                        <li class="list-group-item">Offered by:-Utranchal</li>
+                    </ul>
+                    <div class="card-body">
+                    </div>
                 </div>
-                <br>
-                <p>Fees<button class="cta-button"> 70000</button></p>
-            </div>
-            <div class="hero-image">
-                <img src="eduford_img/jbiet2.jpeg">
             </div>
         </div>
-        <div class="container animate-on-scroll">
-            <div class="hero-image">
-                <img src="eduford_img/upes2.jpeg">
-            </div>
-            <div class="hero-content">
-                <h2>UPES University</h2>
-                <p>Discover our colleges</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> +91 123456789 </i>
-                </div> 
-                <br>
-                <div class="contact-info1">
-                    <i class="fa fa-envelope"> info@upes.edu</i>
+        <div class="card">
+            <div class="card-content">
+                <img src="eduford_img/bsc.webp" class="card-img-top" alt="Placeholder Image">
+                <div class="overlay">
+                    <h5 class="card-title">BSc</h5>
+                    <p class="card-text">Bachelor of Science (BSc) is an undergraduate academic degree awarded for completed courses in science. The full form of BSc is Bachelor of Science. It is a three-year course after 12th grade or equivalent.</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Course duration:-3 years</li>
+                        <li class="list-group-item">Offered by:-JBIET</li>
+                    </ul>
                 </div>
-                <br>
-                <p>Fees<button class="cta-button"> 75000</button></p>
             </div>
         </div>
-        <div class="container animate-on-scroll">
-            <div class="hero-content">
-                <h2>GRD university</h2>
-                <p>Discover our colleges</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> +91 123456789 </i>
-                </div> 
-                <br>
-                <div class="contact-info1">
-                    <i class="fa fa-envelope"> info@grd.edu</i>
-                </div>
-                <br>
-                <p>Fees<button class="cta-button">90000</button></p>
-            </div>
-            <div class="hero-image">
-                <img src="eduford_img/grd2.jpeg">
-            </div>
-        </div> 
-        <div class="container animate-on-scroll">
-            <div class="hero-image">
-                <img src="eduford_img/dev2.jpeg">
-            </div>
-            <div class="hero-content">
-                <h2>Dev Bhoomi University</h2>
-                <p>Discover our colleges</p>
-                <div class="contact-info1">
-                    <i class="fa fa-phone"> +91 123456789 </i>
-                </div> 
-                <br>
-                <div class="contact-info1">
-                    <i class="fa fa-envelope"> info@dbu.edu</i>
-                </div>
-                <br>
-                <p>Fees<button class="cta-button"> 45000</button></p>
-            </div>
-        </div> -->
-    </section>
-    <footer>
+    </div> -->
+    <footer style="margin-top:30px">
         <div class="rowf">
             <div class="colf">
                 <img src="eduford_img/logo.png" class="logof">
@@ -362,20 +310,6 @@ pg_close($conn);
         </div>
     </footer>
     <script>
-    $(document).ready(function() {
-    $(window).scroll(function() {
-        $('.animate-on-scroll').each(function() {
-            var elementTop = $(this).offset().top;
-            var viewportTop = $(window).scrollTop();
-            var viewportBottom = viewportTop + $(window).height();
-            if (elementTop < viewportBottom) {
-                $(this).addClass('visible');
-            }
-        });
-    });
-});
-    </script>
-    <script>
     function toggle_visibility() {
         var e = document.getElementById('feedback-main');
         if(e.style.display == 'block')
@@ -385,5 +319,5 @@ pg_close($conn);
     }
 </script>
 </body>
-
 </html>
+
