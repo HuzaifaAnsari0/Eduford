@@ -38,7 +38,7 @@
 		<link rel="icon" type="image/x-icon" href="onlyCap.png">
 	<link rel="stylesheet" href= 
 "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
-	<link rel="stylesheet" href="feedback.css"> 
+	<link rel="stylesheet" href="../assets/feedback.css"> 
 	<title>Eduford</title>
 </head> 
 <body> 
